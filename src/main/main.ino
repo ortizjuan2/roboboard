@@ -7,10 +7,10 @@
 
 //LD293 Input pins
 #define enable_pin 11
-#define input_1A 3
+#define input_1A 9
 #define input_2A 5
 #define input_3A 6
-#define input_4A 9
+#define input_4A 3
 
 
 long distance;
