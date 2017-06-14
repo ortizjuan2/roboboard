@@ -102,18 +102,23 @@ void loop() {
       case 0: // up
         motor_driver.go(255);
         delay(1000);
-      break;
+        motor_driver.stop();
+        break;
       case 1: // left
         motor_driver.left(255);
         delay(500);
-      break;
+        motor_driver.stop();
+        break;
       case 2: // right
-      motor_driver.right(255);
-      delay(500);
+        motor_driver.right(255);
+        delay(500);
+        motor_driver.stop();
+        break;
       case 3:
-      break;
+        motor_driver.stop();
+        break;
       default:
-      motor_driver.stop();
+        motor_driver.stop();
     }
 
     
