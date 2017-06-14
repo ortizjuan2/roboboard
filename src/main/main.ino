@@ -46,8 +46,8 @@ void loop() {
     }
   }
   
-  //Serial.print(distance);
-  //  Serial.println(" cm");
+  Serial.print(distance);
+    Serial.println(" cm");
     motor_driver.go(255);
     delay(500);
     
