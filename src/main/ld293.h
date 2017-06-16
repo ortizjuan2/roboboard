@@ -84,6 +84,21 @@ void right(int speed){
 }
 
 
+void down(int speed){
+    // motor 1
+    //Serial.print("Right\n");
+    digitalWrite(in_1A, HIGH); 
+    digitalWrite(in_2A, LOW); 
+    //analogWrite(in_1A, speed);
+
+    // motor 2
+    digitalWrite(in_3A, LOW); 
+    digitalWrite(in_4A, HIGH); 
+    //analogWrite(in_3A, speed);
+
+    //delay(1);
+}
+
 
 
 };
