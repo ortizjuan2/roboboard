@@ -25,16 +25,16 @@ class LD293 {
         }
 
 void go(int speed){
-    // motor 1 at the left (front side)
+    // motor 1 go forward
     //Serial.print("Go\n");
     //analogWrite(enablePin, 255);
-    digitalWrite(in_1A, LOW); 
-    digitalWrite(in_2A, HIGH); 
+    digitalWrite(in_1A, LOW); //LOW
+    digitalWrite(in_2A, HIGH); // HIGH
     //analogWrite(in_2A, speed);
 
-    // motor 2 at the left
-    digitalWrite(in_3A, HIGH); 
-    digitalWrite(in_4A, LOW); 
+    // motor 2 go forward
+   digitalWrite(in_3A, HIGH); //HIGH 
+    digitalWrite(in_4A, LOW); //LOW
     
     //analogWrite(in_3A, speed);
 }
@@ -83,6 +83,21 @@ void right(int speed){
     //delay(1);
 }
 
+
+void down(int speed){
+    // motor 1 go forward
+    //Serial.print("Go\n");
+    //analogWrite(enablePin, 255);
+    digitalWrite(in_1A, HIGH); //LOW
+    digitalWrite(in_2A, LOW); // HIGH
+    //analogWrite(in_2A, speed);
+
+    // motor 2 go forward
+   digitalWrite(in_3A, LOW); //HIGH 
+    digitalWrite(in_4A, HIGH); //LOW
+    
+    //analogWrite(in_3A, speed);
+}
 
 
 
