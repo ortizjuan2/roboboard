@@ -12,14 +12,18 @@
 
 //LD293 Input pins
 #define enable_pin 11
+
+
 #define input_1A 9
 #define input_2A 5
 #define input_3A 6
 #define input_4A 3
 
 
+
 SoftwareSerial mySerial(RXBTH, TXBTH); // RX, TX
 String cmd = ""; // Bluetooth command
+bool cmdRcvd = false;
 int direction = 0;
 
 long distance;
@@ -41,6 +45,11 @@ void setup() {
   }
   // set the data rate for the SoftwareSerial port
   mySerial.begin(115200);
+
+
+
+  motor_driver.stop();
+   
   
 }
 
@@ -57,6 +66,9 @@ void loop() {
   
    */
 
+
+   
+
    if (mySerial.available()){
     cmd = mySerial.readString();
 
@@ -65,7 +77,10 @@ void loop() {
     else if(cmd == "right") direction = 2; // right
     else if(cmd == "down") direction = 3; // down
     else direction = 9;
-     
+
+    if(direction != 9)
+      cmdRcvd = true;
+      
     mode = 1;
    }
 
@@ -97,7 +112,7 @@ void loop() {
    // Serial.println(" cm");
     motor_driver.go(255);
     delay(500);
-  } else{ // go manual
+  } else if(cmdRcvd){ // go manual
     switch(direction){
       case 0: // up
         motor_driver.go(255);
@@ -115,20 +130,16 @@ void loop() {
         motor_driver.stop();
         break;
       case 3:
+        motor_driver.down(255);
+        delay(500);
         motor_driver.stop();
         break;
       default:
         motor_driver.stop();
     }
 
-    
+    cmdRcvd = false;
   }
-    /*
-    motor_driver.left(255);
-    delay(2000);
-    motor_driver.right(255);
-    delay(2000);
-    motor_driver.stop();
-    delay(5000);
-    */
+    
+   
 }
