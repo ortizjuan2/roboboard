@@ -85,18 +85,14 @@ void right(int speed){
 
 
 void down(int speed){
-    // motor 1 go forward
-    //Serial.print("Go\n");
-    //analogWrite(enablePin, 255);
+    // motor 1 go backward
     digitalWrite(in_1A, HIGH); //LOW
     digitalWrite(in_2A, LOW); // HIGH
-    //analogWrite(in_2A, speed);
 
-    // motor 2 go forward
+    // motor 2 go backward
    digitalWrite(in_3A, LOW); //HIGH 
     digitalWrite(in_4A, HIGH); //LOW
     
-    //analogWrite(in_3A, speed);
 }
 
 
