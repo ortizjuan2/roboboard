@@ -44,7 +44,7 @@ void setup() {
     ; // wait for serial port to connect. Needed for native USB port only
   }
   // set the data rate for the SoftwareSerial port
-  mySerial.begin(115200);
+  mySerial.begin(9600);
 
 
 
